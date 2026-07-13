@@ -1,6 +1,7 @@
 /**
  * Published articles for the SP site Articles module.
- * Empty after site create — filled when seo-autopilot approves/publishes content.
+ * Empty after site create — filled when seo-autopilot approves/publishes content
+ * into `articles.generated.js` (linked site env write-back).
  *
  * @typedef {{
  *   slug: string,
@@ -12,8 +13,8 @@
  * }} SiteArticle
  */
 
-/** @type {SiteArticle[]} */
-export const ARTICLES = []
+export { ARTICLES } from './articles.generated.js'
+import { ARTICLES } from './articles.generated.js'
 
 /** @param {string} slug */
 export function articleBySlug(slug) {
