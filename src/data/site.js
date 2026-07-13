@@ -59,6 +59,12 @@ export const SITE_ROUTES = [
     description: 'Contact Software Principle about managing and scaling your software projects.',
     h1: 'Contact',
   },
+  {
+    path: '/articles',
+    title: 'Articles',
+    description: 'Published articles from Software Principle on precise, fast, and scalable delivery.',
+    h1: 'Articles',
+  },
 ]
 
 /** @param {string} pathname site path starting with / (router path, not including /sp base) */
@@ -80,5 +86,6 @@ export function routeByPath(path) {
 export const NAV_LINKS = [
   { to: '/capabilities', label: 'Capabilities' },
   { to: '/how-it-works', label: 'How it works' },
+  { to: '/articles', label: 'Articles' },
   { to: '/contact', label: 'Contact' },
 ]

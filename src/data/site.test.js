@@ -24,13 +24,14 @@ describe('absoluteUrl', () => {
 })
 
 describe('SITE_ROUTES', () => {
-  it('lists four public paths including home', () => {
-    expect(SITE_ROUTES).toHaveLength(4)
+  it('lists public paths including home and articles', () => {
+    expect(SITE_ROUTES).toHaveLength(5)
     expect(SITE_ROUTES.map((r) => r.path)).toEqual([
       '/',
       '/capabilities',
       '/how-it-works',
       '/contact',
+      '/articles',
     ])
   })
 

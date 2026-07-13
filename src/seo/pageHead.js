@@ -164,6 +164,57 @@ export function contactPageJsonLd() {
   }
 }
 
+/** @param {string} description */
+export function articlesIndexJsonLd(description) {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      breadcrumbListNode([
+        { name: SITE_NAME, path: '/' },
+        { name: 'Articles', path: '/articles' },
+      ]),
+      {
+        '@type': 'CollectionPage',
+        '@id': `${SITE_ORIGIN}/articles#webpage`,
+        url: absoluteUrl('/articles'),
+        name: 'Articles',
+        description,
+        isPartOf: { '@id': `${SITE_ORIGIN}/#website` },
+      },
+    ],
+  }
+}
+
+/**
+ * @param {{
+ *   slug: string,
+ *   title: string,
+ *   h1: string,
+ *   metaDescription: string,
+ * }} article
+ */
+export function articlePageJsonLd(article) {
+  const path = `/articles/${article.slug}`
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      breadcrumbListNode([
+        { name: SITE_NAME, path: '/' },
+        { name: 'Articles', path: '/articles' },
+        { name: article.title, path },
+      ]),
+      {
+        '@type': 'Article',
+        '@id': `${SITE_ORIGIN}${path}#article`,
+        headline: article.h1,
+        description: article.metaDescription,
+        mainEntityOfPage: absoluteUrl(path),
+        publisher: { '@id': `${SITE_ORIGIN}/#organization` },
+      },
+    ],
+  }
+}
+
 /**
  * @param {{
  *   title: string,

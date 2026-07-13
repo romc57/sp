@@ -372,6 +372,62 @@ img {
   border-top: 1px solid color-mix(in srgb, var(--sp-ink) 10%, transparent);
 }
 
+.articles-empty {
+  margin: 0;
+  color: var(--sp-muted);
+}
+
+.articles-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.articles-list li {
+  padding-top: 1.25rem;
+  border-top: 1px solid color-mix(in srgb, var(--sp-ink) 10%, transparent);
+}
+
+.articles-list a {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--sp-ink);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.articles-list-desc {
+  margin: 0.4rem 0 0;
+  color: var(--sp-muted);
+  max-width: 38rem;
+}
+
+.article-body {
+  max-width: 40rem;
+}
+
+.article-body :is(h2, h3) {
+  font-family: var(--font-display);
+  color: var(--sp-ink);
+  margin: 1.75rem 0 0.5rem;
+}
+
+.article-body p {
+  color: var(--sp-muted);
+}
+
+.articles-back {
+  margin-top: 2.5rem;
+}
+
+.articles-back a {
+  color: var(--sp-accent-deep);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 .contact-channels {
   display: flex;
   flex-direction: column;
@@ -395,31 +451,16 @@ img {
   word-break: break-word;
 }
 
+.contact-channel-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .contact-channel-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-}
-
-.contact-box {
-  max-width: 28rem;
-}
-
-.contact-box label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.35rem;
-}
-
-.contact-box input,
-.contact-box textarea {
-  width: 100%;
-  margin-bottom: 1rem;
-  padding: 0.7rem 0.8rem;
-  border: 1px solid color-mix(in srgb, var(--sp-ink) 16%, transparent);
-  border-radius: 0.35rem;
-  background: white;
-  font: inherit;
 }
 
 .site-footer {
