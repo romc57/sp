@@ -1,0 +1,6 @@
+{
+  "server_url": "http://localhost:8001",
+  "dashboard_url": "http://localhost:5173",
+  "project": "",
+  "plugin_version": "0.1.0"
+}

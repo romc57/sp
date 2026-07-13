@@ -1,0 +1,14 @@
+.workstation-agent.env
+.workstation-proxy.env
+.workstation-dev-session
+.workstation-presence.json
+.workstation-last-accept-context
+.workstation-last-session-summary
+workstation-plugin/config.local.json
+
+# build
+dist/
+node_modules/
+.env
+.env.local
+*.log

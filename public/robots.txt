@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://romc57.github.io/sp/sitemap.xml

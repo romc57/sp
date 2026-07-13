@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://romc57.github.io/sp/</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://romc57.github.io/sp/capabilities</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://romc57.github.io/sp/how-it-works</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://romc57.github.io/sp/contact</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+</urlset>

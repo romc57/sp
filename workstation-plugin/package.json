@@ -1,0 +1,19 @@
+{
+  "name": "workstation-plugin",
+  "displayName": "Valerie · WorkStation Bridge",
+  "description": "Routes IDE agent actions through WorkStation dev-control with Valerie presence",
+  "version": "0.1.0",
+  "publisher": "workstation",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "workstation.openDashboard",
+        "title": "Valerie: Open Request Dashboard"
+      }
+    ]
+  }
+}
