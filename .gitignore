@@ -1,12 +1,15 @@
+# WorkStation / Valerie bridge — local only (never publish control plane)
+workstation-plugin/
+.cursor/
+.vscode/extensions.json
 .workstation-agent.env
 .workstation-proxy.env
 .workstation-dev-session
 .workstation-presence.json
 .workstation-last-accept-context
 .workstation-last-session-summary
-workstation-plugin/config.local.json
 
-# build
+# build / secrets
 dist/
 node_modules/
 .env

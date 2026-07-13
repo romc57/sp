@@ -1,5 +1,0 @@
-{
-  "server_url": "http://10.50.0.2:8001",
-  "dashboard_url": "http://10.50.0.2:5173",
-  "_comment": "Copy to config.local.json (gitignored). Use LAN host IP instead of 10.50.0.2 when on the same network. Prefer .workstation-agent.env WORKSTATION_DEV_CONTROL_URL."
-}

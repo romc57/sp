@@ -11,13 +11,6 @@ npm ci
 npm run dev
 ```
 
-With WorkStation compose:
-
-```bash
-bash scripts/dev.sh npm ci
-# or: scripts/dev-env.sh up --project sp
-```
-
 ## Build & deploy (GitHub Pages)
 
 ```bash
