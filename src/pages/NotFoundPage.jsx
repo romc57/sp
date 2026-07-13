@@ -1,15 +1,22 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { applyPageHead } from '../seo/pageHead.js'
 
+function routerPathFromLocation(pathname) {
+  return pathname.startsWith('/') ? pathname : `/${pathname}`
+}
+
 export default function NotFoundPage() {
+  const location = useLocation()
+
   useEffect(() => {
     applyPageHead({
       title: 'Not found',
       description: 'Page not found.',
-      path: '/404',
+      path: routerPathFromLocation(location.pathname),
+      robots: 'noindex, nofollow',
     })
-  }, [])
+  }, [location.pathname])
 
   return (
     <div className="page">

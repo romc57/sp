@@ -18,6 +18,11 @@ services:
     volumes:
       - .:/app
       - node_modules:/app/node_modules
+    # Unique alias — gateway is also on traefik-public where bare "app" collides
+    networks:
+      default:
+        aliases:
+          - sp-vite
 
 volumes:
   node_modules:

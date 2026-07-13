@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
-import { applyPageHead } from '../seo/pageHead.js'
+import { applyPageHead, breadcrumbJsonLd } from '../seo/pageHead.js'
+import { SITE_NAME } from '../data/site.js'
 
 const ITEMS = [
   {
@@ -23,6 +24,10 @@ export default function CapabilitiesPage() {
       description:
         'Precise quality loops, fast iteration, and scalable project management for software businesses.',
       path: '/capabilities',
+      jsonLd: breadcrumbJsonLd([
+        { name: SITE_NAME, path: '/' },
+        { name: 'Capabilities', path: '/capabilities' },
+      ]),
     })
   }, [])
 

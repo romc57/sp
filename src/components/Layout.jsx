@@ -5,8 +5,11 @@ import Footer from './Footer.jsx'
 export default function Layout() {
   return (
     <div className="shell">
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
       <Navbar />
-      <main className="shell-main">
+      <main id="main-content" className="shell-main" tabIndex={-1}>
         <Outlet />
       </main>
       <Footer />

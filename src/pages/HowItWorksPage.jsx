@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
-import { applyPageHead } from '../seo/pageHead.js'
+import { applyPageHead, breadcrumbJsonLd } from '../seo/pageHead.js'
+import { SITE_NAME } from '../data/site.js'
 
 const STEPS = [
   {
@@ -35,6 +36,10 @@ export default function HowItWorksPage() {
       description:
         'How Software Principle helps businesses manage projects, stay precise, move fast, and scale delivery.',
       path: '/how-it-works',
+      jsonLd: breadcrumbJsonLd([
+        { name: SITE_NAME, path: '/' },
+        { name: 'How it works', path: '/how-it-works' },
+      ]),
     })
   }, [])
 

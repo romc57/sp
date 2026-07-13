@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { applyPageHead } from '../seo/pageHead.js'
+import { applyPageHead, breadcrumbJsonLd } from '../seo/pageHead.js'
+import { SITE_NAME } from '../data/site.js'
 
 export default function ContactPage() {
   const [name, setName] = useState('')
@@ -11,6 +12,10 @@ export default function ContactPage() {
       title: 'Contact',
       description: 'Contact Software Principle about managing and scaling your software projects.',
       path: '/contact',
+      jsonLd: breadcrumbJsonLd([
+        { name: SITE_NAME, path: '/' },
+        { name: 'Contact', path: '/contact' },
+      ]),
     })
   }, [])
 
