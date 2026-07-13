@@ -18,7 +18,7 @@ export default function Navbar() {
             ))}
             <li className="nav-cta">
               <Link className="btn btn-primary" to="/contact">
-                Talk to us
+                Contact us
               </Link>
             </li>
           </ul>

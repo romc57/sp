@@ -8,7 +8,7 @@ test.describe('responsive', () => {
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
     const talkToUs = page.getByRole('navigation', { name: 'Primary' }).getByRole('link', {
-      name: 'Talk to us',
+      name: 'Contact us',
     })
     const contact = page.getByRole('navigation', { name: 'Primary' }).getByRole('link', {
       name: 'Contact',

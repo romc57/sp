@@ -1,3 +1,5 @@
+import { PRODUCT_RANGE_FULL, PRODUCT_RANGE_SHORT } from './offerContent.js'
+
 /** Production origin — GitHub Pages project site */
 export const SITE_ORIGIN = 'https://romc57.github.io/sp'
 
@@ -10,7 +12,7 @@ export const DEFAULT_OG_PATH = '/og-image.png'
 export const OG_IMAGE_WIDTH = 1200
 export const OG_IMAGE_HEIGHT = 630
 export const OG_IMAGE_ALT =
-  'Software Principle — create, support, and scale software products that stay precise, fast, and affordable'
+  'Software Principle — create, support, and scale software products with precision, delivery speed, and competitive pricing'
 
 /** Raster logo for structured data (generated at build time) */
 export const LOGO_PATH = '/logo.png'
@@ -36,8 +38,7 @@ export const SITE_ROUTES = [
   {
     path: '/',
     title: 'Software Principle',
-    description:
-      'Software Principle creates, supports, and scales software products — including AI — with sharp prices from SEO sites to SaaS.',
+    description: `Software Principle creates, supports, and scales software products — ${PRODUCT_RANGE_FULL}.`,
     h1: 'Software Principle',
   },
   {
@@ -51,20 +52,19 @@ export const SITE_ROUTES = [
     path: '/how-it-works',
     title: 'How it works',
     description:
-      'How Software Principle creates products, supports and scales them, lets users subscribe, and can release the source.',
+      'How Software Principle creates products, supports and scales them, enables customer subscription, and can transfer source ownership.',
     h1: 'How it works',
   },
   {
     path: '/contact',
     title: 'Contact',
-    description:
-      'Contact Software Principle about creating, supporting, or scaling a product — or about subscription and source ownership.',
+    description: `Contact Software Principle about a product ${PRODUCT_RANGE_SHORT} — or about subscription and source ownership.`,
     h1: 'Contact',
   },
   {
     path: '/articles',
     title: 'Articles',
-    description: 'Published articles from Software Principle on precise, fast, and scalable products.',
+    description: 'Articles from Software Principle on precise, fast, and scalable software products.',
     h1: 'Articles',
   },
 ]

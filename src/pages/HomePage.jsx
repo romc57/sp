@@ -38,7 +38,7 @@ export default function HomePage() {
               How it works
             </Link>
             <Link className="btn btn-ghost" to="/contact">
-              Get in touch
+              Contact us
             </Link>
           </div>
         </div>
