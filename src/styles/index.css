@@ -372,6 +372,35 @@ img {
   border-top: 1px solid color-mix(in srgb, var(--sp-ink) 10%, transparent);
 }
 
+.contact-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 28rem;
+  margin: 0 0 2rem;
+}
+
+.contact-channel-label {
+  margin: 0;
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--sp-ink-soft);
+}
+
+.contact-channel-value {
+  margin: 0.2rem 0 0.55rem;
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  color: var(--sp-text);
+  word-break: break-word;
+}
+
+.contact-channel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
 .contact-box {
   max-width: 28rem;
 }

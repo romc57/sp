@@ -1,6 +1,14 @@
 import { useEffect, useState } from 'react'
-import { applyPageHead, breadcrumbJsonLd } from '../seo/pageHead.js'
-import { SITE_NAME } from '../data/site.js'
+import ContactChannel from '../components/ContactChannel.jsx'
+import { applyPageHead, contactPageJsonLd } from '../seo/pageHead.js'
+import {
+  CONTACT_EMAIL,
+  CONTACT_WHATSAPP_DISPLAY,
+  routeByPath,
+  whatsappUrl,
+} from '../data/site.js'
+
+const route = routeByPath('/contact')
 
 export default function ContactPage() {
   const [name, setName] = useState('')
@@ -9,13 +17,10 @@ export default function ContactPage() {
 
   useEffect(() => {
     applyPageHead({
-      title: 'Contact',
-      description: 'Contact Software Principle about managing and scaling your software projects.',
+      title: route.title,
+      description: route.description,
       path: '/contact',
-      jsonLd: breadcrumbJsonLd([
-        { name: SITE_NAME, path: '/' },
-        { name: 'Contact', path: '/contact' },
-      ]),
+      jsonLd: contactPageJsonLd(),
     })
   }, [])
 
@@ -23,7 +28,7 @@ export default function ContactPage() {
     e.preventDefault()
     const subject = encodeURIComponent(`Software Principle inquiry from ${name || 'someone'}`)
     const body = encodeURIComponent(`${message}\n\n— ${name}\n${email}`)
-    window.location.href = `mailto:hello@softwareprinciple.dev?subject=${subject}&body=${body}`
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`
   }
 
   return (
@@ -33,6 +38,23 @@ export default function ContactPage() {
         <p className="lede">
           Tell us about your projects. We help businesses make development precise, fast, and scalable.
         </p>
+
+        <div className="contact-channels" aria-label="Direct contact">
+          <ContactChannel
+            label="WhatsApp"
+            value={CONTACT_WHATSAPP_DISPLAY}
+            openHref={whatsappUrl()}
+            openLabel="Open WhatsApp"
+            openExternal
+          />
+          <ContactChannel
+            label="Email"
+            value={CONTACT_EMAIL}
+            openHref={`mailto:${CONTACT_EMAIL}`}
+            openLabel="Open email"
+          />
+        </div>
+
         <form className="contact-box" onSubmit={onSubmit}>
           <label htmlFor="name">Name</label>
           <input id="name" value={name} onChange={(e) => setName(e.target.value)} required />

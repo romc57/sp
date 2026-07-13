@@ -1,6 +1,18 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
-import { applyPageHead, homeGraphJsonLd } from './pageHead.js'
-import { SITE_NAME, SITE_ORIGIN } from '../data/site.js'
+import {
+  applyPageHead,
+  capabilitiesPageJsonLd,
+  contactPageJsonLd,
+  homeGraphJsonLd,
+} from './pageHead.js'
+import {
+  CONTACT_EMAIL,
+  OG_IMAGE_ALT,
+  OG_IMAGE_HEIGHT,
+  OG_IMAGE_WIDTH,
+  SITE_NAME,
+  SITE_ORIGIN,
+} from '../data/site.js'
 
 function createDom() {
   const headChildren = []
@@ -66,6 +78,14 @@ function createDom() {
       }
       return head.querySelector(selector)
     },
+    querySelectorAll(selector) {
+      if (selector === 'link[rel="canonical"]') {
+        return head.children.filter(
+          (el) => el.tag === 'link' && el.getAttribute('rel') === 'canonical',
+        )
+      }
+      return []
+    },
     createElement,
   }
 }
@@ -100,6 +120,26 @@ describe('applyPageHead', () => {
     expect(siteName.getAttribute('content')).toBe(SITE_NAME)
   })
 
+  it('sets OG image dimensions and alt text', () => {
+    applyPageHead({
+      title: 'Contact',
+      description: 'Reach us',
+      path: '/contact',
+    })
+    expect(document.head.querySelector('meta[property="og:image:width"]').getAttribute('content')).toBe(
+      String(OG_IMAGE_WIDTH),
+    )
+    expect(document.head.querySelector('meta[property="og:image:height"]').getAttribute('content')).toBe(
+      String(OG_IMAGE_HEIGHT),
+    )
+    expect(document.head.querySelector('meta[property="og:image:alt"]').getAttribute('content')).toBe(
+      OG_IMAGE_ALT,
+    )
+    expect(document.head.querySelector('meta[name="twitter:image:alt"]').getAttribute('content')).toBe(
+      OG_IMAGE_ALT,
+    )
+  })
+
   it('sets robots when provided', () => {
     applyPageHead({
       title: 'Not found',
@@ -122,5 +162,27 @@ describe('applyPageHead', () => {
     expect(script).toBeTruthy()
     const data = JSON.parse(script.textContent)
     expect(data['@graph']).toHaveLength(2)
+  })
+})
+
+describe('page JSON-LD helpers', () => {
+  it('home graph uses raster logo', () => {
+    const data = homeGraphJsonLd()
+    const org = data['@graph'].find((node) => node['@type'] === 'Organization')
+    expect(org.logo).toContain('/logo.png')
+  })
+
+  it('capabilities graph includes breadcrumb and service', () => {
+    const data = capabilitiesPageJsonLd('Service description')
+    expect(data['@graph']).toHaveLength(2)
+    expect(data['@graph'][0]['@type']).toBe('BreadcrumbList')
+    expect(data['@graph'][1]['@type']).toBe('ProfessionalService')
+  })
+
+  it('contact graph includes ContactPoint email and telephone', () => {
+    const data = contactPageJsonLd()
+    const page = data['@graph'].find((node) => node['@type'] === 'ContactPage')
+    expect(page.mainEntity.email).toBe(CONTACT_EMAIL)
+    expect(page.mainEntity.telephone).toBe('+972507148309')
   })
 })
