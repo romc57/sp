@@ -119,26 +119,31 @@ export function breadcrumbJsonLd(items) {
 export function professionalServiceJsonLd(description) {
   return {
     '@type': 'ProfessionalService',
-    '@id': `${SITE_ORIGIN}/capabilities#service`,
+    '@id': `${SITE_ORIGIN}/technologies#service`,
     name: SITE_NAME,
-    url: absoluteUrl('/capabilities'),
+    url: absoluteUrl('/technologies'),
     description,
     provider: { '@id': `${SITE_ORIGIN}/#organization` },
   }
 }
 
 /** @param {string} description */
-export function capabilitiesPageJsonLd(description) {
+export function technologiesPageJsonLd(description) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
       breadcrumbListNode([
         { name: SITE_NAME, path: '/' },
-        { name: 'Capabilities', path: '/capabilities' },
+        { name: 'Technologies', path: '/technologies' },
       ]),
       professionalServiceJsonLd(description),
     ],
   }
+}
+
+/** @deprecated use technologiesPageJsonLd */
+export function capabilitiesPageJsonLd(description) {
+  return technologiesPageJsonLd(description)
 }
 
 export function contactPageJsonLd() {

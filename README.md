@@ -1,6 +1,6 @@
 # Software Principle (SP)
 
-Public marketing site for **Software Principle** — helping businesses manage and create software projects with development that is precise, fast, and scalable.
+Public marketing site for **Software Principle** — creating, supporting, and scaling software products that stay precise, fast, and affordable.
 
 Live: https://romc57.github.io/sp/
 

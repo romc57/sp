@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import {
   applyPageHead,
-  capabilitiesPageJsonLd,
+  technologiesPageJsonLd,
   contactPageJsonLd,
   homeGraphJsonLd,
 } from './pageHead.js'
@@ -101,11 +101,11 @@ describe('applyPageHead', () => {
 
   it('applies title suffix for non-brand titles', () => {
     applyPageHead({
-      title: 'Capabilities',
+      title: 'Technologies',
       description: 'Desc',
-      path: '/capabilities',
+      path: '/technologies',
     })
-    expect(document.title).toBe(`Capabilities · ${SITE_NAME}`)
+    expect(document.title).toBe(`Technologies · ${SITE_NAME}`)
   })
 
   it('sets canonical and og:site_name', () => {
@@ -172,11 +172,12 @@ describe('page JSON-LD helpers', () => {
     expect(org.logo).toContain('/logo.png')
   })
 
-  it('capabilities graph includes breadcrumb and service', () => {
-    const data = capabilitiesPageJsonLd('Service description')
+  it('technologies graph includes breadcrumb and service', () => {
+    const data = technologiesPageJsonLd('Service description')
     expect(data['@graph']).toHaveLength(2)
     expect(data['@graph'][0]['@type']).toBe('BreadcrumbList')
     expect(data['@graph'][1]['@type']).toBe('ProfessionalService')
+    expect(data['@graph'][1].url).toContain('/technologies')
   })
 
   it('contact graph includes ContactPoint email and telephone', () => {

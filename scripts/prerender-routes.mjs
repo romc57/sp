@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url'
 import { SITE_NAME, SITE_ROUTES } from '../src/data/site.js'
 import {
   breadcrumbJsonLd,
-  capabilitiesPageJsonLd,
+  technologiesPageJsonLd,
   contactPageJsonLd,
   articlesIndexJsonLd,
   homeGraphJsonLd,
@@ -20,7 +20,7 @@ const HEAD_SEO_RE =
 
 function jsonLdForRoute(route) {
   if (route.path === '/') return homeGraphJsonLd()
-  if (route.path === '/capabilities') return capabilitiesPageJsonLd(route.description)
+  if (route.path === '/technologies') return technologiesPageJsonLd(route.description)
   if (route.path === '/contact') return contactPageJsonLd()
   if (route.path === '/articles') return articlesIndexJsonLd(route.description)
   return breadcrumbJsonLd([

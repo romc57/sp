@@ -15,7 +15,7 @@ import {
 
 describe('absoluteUrl', () => {
   it('joins origin and path', () => {
-    expect(absoluteUrl('/capabilities')).toBe(`${SITE_ORIGIN}/capabilities`)
+    expect(absoluteUrl('/technologies')).toBe(`${SITE_ORIGIN}/technologies`)
   })
 
   it('handles root', () => {
@@ -28,7 +28,7 @@ describe('SITE_ROUTES', () => {
     expect(SITE_ROUTES).toHaveLength(5)
     expect(SITE_ROUTES.map((r) => r.path)).toEqual([
       '/',
-      '/capabilities',
+      '/technologies',
       '/how-it-works',
       '/contact',
       '/articles',

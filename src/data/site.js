@@ -4,12 +4,13 @@ export const SITE_ORIGIN = 'https://romc57.github.io/sp'
 export const SITE_NAME = 'Software Principle'
 export const SITE_SHORT = 'SP'
 
+
 /** Dedicated social share image (not the favicon) */
 export const DEFAULT_OG_PATH = '/og-image.png'
 export const OG_IMAGE_WIDTH = 1200
 export const OG_IMAGE_HEIGHT = 630
 export const OG_IMAGE_ALT =
-  'Software Principle — precise, fast, and scalable software delivery for businesses'
+  'Software Principle — create, support, and scale software products that stay precise, fast, and affordable'
 
 /** Raster logo for structured data (generated at build time) */
 export const LOGO_PATH = '/logo.png'
@@ -36,33 +37,34 @@ export const SITE_ROUTES = [
     path: '/',
     title: 'Software Principle',
     description:
-      'Software Principle helps businesses manage and create software projects with development that is precise, fast, and scalable.',
+      'Software Principle creates, supports, and scales software products — including AI — with sharp prices from SEO sites to SaaS.',
     h1: 'Software Principle',
   },
   {
-    path: '/capabilities',
-    title: 'Capabilities',
+    path: '/technologies',
+    title: 'Technologies',
     description:
-      'Precise quality loops, fast iteration, and scalable project management for software businesses.',
-    h1: 'Capabilities',
+      'Cloud and third-party platforms Software Principle uses — OpenAI, Google Cloud, GitHub, Netlify, React, and more.',
+    h1: 'Technologies',
   },
   {
     path: '/how-it-works',
     title: 'How it works',
     description:
-      'How Software Principle helps businesses manage projects, stay precise, move fast, and scale delivery.',
+      'How Software Principle creates products, supports and scales them, lets users subscribe, and can release the source.',
     h1: 'How it works',
   },
   {
     path: '/contact',
     title: 'Contact',
-    description: 'Contact Software Principle about managing and scaling your software projects.',
+    description:
+      'Contact Software Principle about creating, supporting, or scaling a product — or about subscription and source ownership.',
     h1: 'Contact',
   },
   {
     path: '/articles',
     title: 'Articles',
-    description: 'Published articles from Software Principle on precise, fast, and scalable delivery.',
+    description: 'Published articles from Software Principle on precise, fast, and scalable products.',
     h1: 'Articles',
   },
 ]
@@ -84,8 +86,8 @@ export function routeByPath(path) {
 }
 
 export const NAV_LINKS = [
-  { to: '/capabilities', label: 'Capabilities' },
   { to: '/how-it-works', label: 'How it works' },
+  { to: '/technologies', label: 'Technologies' },
   { to: '/articles', label: 'Articles' },
   { to: '/contact', label: 'Contact' },
 ]

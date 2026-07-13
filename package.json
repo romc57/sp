@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-sitemap.mjs && vite build",
+    "build": "node scripts/generate-og-image.mjs && node scripts/generate-sitemap.mjs && vite build && node scripts/prerender-routes.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "icons:integrations": "node scripts/fetch-integration-icons.mjs"
   },
   "dependencies": {
     "react": "^19.2.0",

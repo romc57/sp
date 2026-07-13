@@ -30,6 +30,49 @@ test.describe('seo', () => {
     })
   }
 
+  test('OG image uses PNG with dimensions', async ({ page }) => {
+    await page.goto('./')
+    const ogImage = page.locator('meta[property="og:image"]')
+    await expect(ogImage).toHaveAttribute('content', /\.png$/)
+    await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content', '1200')
+    await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content', '630')
+    await expect(page.locator('meta[property="og:image:alt"]')).toHaveAttribute('content', /Software Principle/)
+  })
+
+  test('inner page includes breadcrumb JSON-LD', async ({ page }) => {
+    await page.goto('technologies')
+    await expect.poll(async () => page.title()).toContain('Technologies')
+    const jsonLd = page.locator('script[type="application/ld+json"]')
+    const raw = await jsonLd.first().textContent()
+    expect(raw).toContain('BreadcrumbList')
+  })
+
+  test('technologies page includes ProfessionalService JSON-LD', async ({ page }) => {
+    await page.goto('technologies')
+    const raw = await page.locator('script[type="application/ld+json"]').first().textContent()
+    expect(raw).toContain('ProfessionalService')
+  })
+
+  test('contact page includes ContactPoint JSON-LD', async ({ page }) => {
+    await page.goto('contact')
+    const raw = await page.locator('script[type="application/ld+json"]').first().textContent()
+    expect(raw).toContain('ContactPoint')
+    expect(raw).toContain('rom.cohen10@gmail.com')
+  })
+
+  test('404 sets noindex', async ({ page }) => {
+    await page.goto('does-not-exist')
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'noindex, nofollow')
+  })
+
+  test('prerendered HTML exposes route H1 in static file', async ({ request }) => {
+    const res = await request.get('technologies/index.html')
+    expect(res.ok()).toBeTruthy()
+    const body = await res.text()
+    expect(body).toContain('<h1>Technologies</h1>')
+    expect(body).toContain('Technologies · Software Principle')
+  })
+
   test('home injects JSON-LD', async ({ page }) => {
     await page.goto('./')
     await expect.poll(async () => page.title()).toContain(SITE_NAME)
@@ -45,6 +88,7 @@ test.describe('seo', () => {
     const body = await res.text()
     expect(body).toContain('<urlset')
     expect(body).toContain(SITE_ORIGIN)
+    expect(body).toContain('<lastmod>')
     for (const route of SITE_ROUTES) {
       const loc = route.path === '/' ? `${SITE_ORIGIN}/` : `${SITE_ORIGIN}${route.path}`
       expect(body).toContain(`<loc>${loc}</loc>`)

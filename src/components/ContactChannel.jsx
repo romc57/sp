@@ -7,16 +7,9 @@ import { copyText } from '../lib/copy-text.js'
  *   value: string
  *   openHref: string
  *   openLabel?: string
- *   openExternal?: boolean
  * }} props
  */
-export default function ContactChannel({
-  label,
-  value,
-  openHref,
-  openLabel = 'Open',
-  openExternal = false,
-}) {
+export default function ContactChannel({ label, value, openHref, openLabel = 'Open' }) {
   const [copied, setCopied] = useState(false)
 
   async function onCopy() {
@@ -28,15 +21,13 @@ export default function ContactChannel({
   return (
     <div className="contact-channel">
       <p className="contact-channel-label">{label}</p>
-      <p className="contact-channel-value">{value}</p>
+      <p className="contact-channel-value">
+        <a className="contact-channel-link" href={openHref}>
+          {value}
+        </a>
+      </p>
       <div className="contact-channel-actions">
-        <a
-          className="btn btn-ghost"
-          href={openHref}
-          {...(openExternal
-            ? { target: '_blank', rel: 'noopener noreferrer' }
-            : {})}
-        >
+        <a className="btn btn-primary" href={openHref}>
           {openLabel}
         </a>
         <button className="btn btn-ghost" type="button" onClick={onCopy}>

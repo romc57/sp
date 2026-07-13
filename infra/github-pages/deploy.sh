@@ -28,8 +28,10 @@ if [[ ! -d dist ]]; then
   exit 1
 fi
 
-# SPA fallback for project Pages
-cp dist/index.html dist/404.html
+# SPA fallback for project Pages (also written by prerender-routes.mjs)
+if [[ ! -f dist/404.html ]]; then
+  cp dist/index.html dist/404.html
+fi
 
 if [[ "$DRY_RUN" -eq 1 ]]; then
   echo "DRY RUN: would publish dist/ to gh-pages ($(du -sh dist | cut -f1))"

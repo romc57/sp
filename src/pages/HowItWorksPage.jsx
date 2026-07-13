@@ -1,44 +1,20 @@
 import { useEffect } from 'react'
+import RelatedLinks from '../components/RelatedLinks.jsx'
+import { HOW_IT_WORKS_LEDE, HOW_IT_WORKS_STEPS, RELATED_LINKS } from '../data/offerContent.js'
 import { applyPageHead, breadcrumbJsonLd } from '../seo/pageHead.js'
-import { SITE_NAME } from '../data/site.js'
+import { routeByPath, SITE_NAME } from '../data/site.js'
 
-const STEPS = [
-  {
-    title: 'Manage and create projects',
-    body: 'Bring every software project into one place — start new work and keep existing portfolios organized.',
-  },
-  {
-    title: 'Keep quality precise',
-    body: 'Build with reviewable changes and proven checks so what you ship matches what you meant.',
-  },
-  {
-    title: 'Iterate fast',
-    body: 'Run parallel workstreams and short feedback loops so teams move without waiting on chaos.',
-  },
-  {
-    title: 'Scale without sprawl',
-    body: 'Add projects and contributors while standards and visibility stay consistent.',
-  },
-  {
-    title: 'Work with grounded assistance',
-    body: 'Get help that knows your project context — answers and drafts tied to your real materials, not generic noise.',
-  },
-  {
-    title: 'Ready to publish',
-    body: 'Move from local confidence to published releases with a clear path to environments your customers see.',
-  },
-]
+const route = routeByPath('/how-it-works')
 
 export default function HowItWorksPage() {
   useEffect(() => {
     applyPageHead({
-      title: 'How it works',
-      description:
-        'How Software Principle helps businesses manage projects, stay precise, move fast, and scale delivery.',
+      title: route.title,
+      description: route.description,
       path: '/how-it-works',
       jsonLd: breadcrumbJsonLd([
         { name: SITE_NAME, path: '/' },
-        { name: 'How it works', path: '/how-it-works' },
+        { name: route.title, path: '/how-it-works' },
       ]),
     })
   }, [])
@@ -47,18 +23,16 @@ export default function HowItWorksPage() {
     <div className="page">
       <div className="wrap">
         <h1>How it works</h1>
-        <p className="lede">
-          Outcomes for your business — not a tour of tooling. Software Principle turns project creation
-          and delivery into a system you can trust.
-        </p>
+        <p className="lede">{HOW_IT_WORKS_LEDE}</p>
         <div className="stack">
-          {STEPS.map((step) => (
+          {HOW_IT_WORKS_STEPS.map((step) => (
             <article key={step.title} className="step capability">
               <h2>{step.title}</h2>
               <p>{step.body}</p>
             </article>
           ))}
         </div>
+        <RelatedLinks links={RELATED_LINKS.howItWorks} />
       </div>
     </div>
   )

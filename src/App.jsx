@@ -1,7 +1,7 @@
-import { Routes, Route } from 'react-router-dom'
+import { Navigate, Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout.jsx'
 import HomePage from './pages/HomePage.jsx'
-import CapabilitiesPage from './pages/CapabilitiesPage.jsx'
+import TechnologiesPage from './pages/TechnologiesPage.jsx'
 import HowItWorksPage from './pages/HowItWorksPage.jsx'
 import ContactPage from './pages/ContactPage.jsx'
 import ArticlesPage from './pages/ArticlesPage.jsx'
@@ -13,7 +13,8 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route path="capabilities" element={<CapabilitiesPage />} />
+        <Route path="technologies" element={<TechnologiesPage />} />
+        <Route path="capabilities" element={<Navigate to="/technologies" replace />} />
         <Route path="how-it-works" element={<HowItWorksPage />} />
         <Route path="articles" element={<ArticlesPage />} />
         <Route path="articles/:slug" element={<ArticleDetailPage />} />

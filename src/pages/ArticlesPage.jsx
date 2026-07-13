@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import RelatedLinks from '../components/RelatedLinks.jsx'
 import { ARTICLES } from '../data/articles.js'
+import { RELATED_LINKS } from '../data/offerContent.js'
 import { routeByPath } from '../data/site.js'
 import { applyPageHead, articlesIndexJsonLd } from '../seo/pageHead.js'
 
@@ -20,7 +22,9 @@ export default function ArticlesPage() {
     <div className="page" data-module="articles">
       <div className="wrap">
         <h1>Articles</h1>
-        <p className="lede">Writing from Software Principle on delivery that stays precise, fast, and scalable.</p>
+        <p className="lede">
+          Writing from Software Principle on products that stay precise, fast, and scalable.
+        </p>
         {ARTICLES.length === 0 ? (
           <p className="articles-empty">No articles published yet.</p>
         ) : (
@@ -35,6 +39,7 @@ export default function ArticlesPage() {
             ))}
           </ul>
         )}
+        <RelatedLinks links={RELATED_LINKS.articles} />
       </div>
     </div>
   )

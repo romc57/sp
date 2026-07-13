@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import ContactChannel from '../components/ContactChannel.jsx'
+import RelatedLinks from '../components/RelatedLinks.jsx'
 import { applyPageHead, contactPageJsonLd } from '../seo/pageHead.js'
+import { CONTACT_LEDE, RELATED_LINKS } from '../data/offerContent.js'
 import {
   CONTACT_EMAIL,
   CONTACT_WHATSAPP_DISPLAY,
@@ -11,10 +13,6 @@ import {
 const route = routeByPath('/contact')
 
 export default function ContactPage() {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
-
   useEffect(() => {
     applyPageHead({
       title: route.title,
@@ -24,20 +22,11 @@ export default function ContactPage() {
     })
   }, [])
 
-  function onSubmit(e) {
-    e.preventDefault()
-    const subject = encodeURIComponent(`Software Principle inquiry from ${name || 'someone'}`)
-    const body = encodeURIComponent(`${message}\n\n— ${name}\n${email}`)
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`
-  }
-
   return (
     <div className="page">
       <div className="wrap">
         <h1>Contact</h1>
-        <p className="lede">
-          Tell us about your projects. We help businesses make development precise, fast, and scalable.
-        </p>
+        <p className="lede">{CONTACT_LEDE}</p>
 
         <div className="contact-channels" aria-label="Direct contact">
           <ContactChannel
@@ -45,7 +34,6 @@ export default function ContactPage() {
             value={CONTACT_WHATSAPP_DISPLAY}
             openHref={whatsappUrl()}
             openLabel="Open WhatsApp"
-            openExternal
           />
           <ContactChannel
             label="Email"
@@ -55,29 +43,7 @@ export default function ContactPage() {
           />
         </div>
 
-        <form className="contact-box" onSubmit={onSubmit}>
-          <label htmlFor="name">Name</label>
-          <input id="name" value={name} onChange={(e) => setName(e.target.value)} required />
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <label htmlFor="message">Message</label>
-          <textarea
-            id="message"
-            rows={5}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            required
-          />
-          <button className="btn btn-primary" type="submit">
-            Send message
-          </button>
-        </form>
+        <RelatedLinks links={RELATED_LINKS.contact} />
       </div>
     </div>
   )
