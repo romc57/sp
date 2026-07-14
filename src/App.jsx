@@ -1,7 +1,6 @@
-import { Navigate, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout.jsx'
 import HomePage from './pages/HomePage.jsx'
-import TechnologiesPage from './pages/TechnologiesPage.jsx'
 import HowItWorksPage from './pages/HowItWorksPage.jsx'
 import ContactPage from './pages/ContactPage.jsx'
 import ArticlesPage from './pages/ArticlesPage.jsx'
@@ -14,8 +13,6 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route path="technologies" element={<TechnologiesPage />} />
-        <Route path="capabilities" element={<Navigate to="/technologies" replace />} />
         <Route path="how-it-works" element={<HowItWorksPage />} />
         <Route path="products" element={<ProductsAndCustomersPage />} />
         <Route path="articles" element={<ArticlesPage />} />

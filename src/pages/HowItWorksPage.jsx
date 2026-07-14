@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import LifecycleStep from '../components/LifecycleStep.jsx'
 import RelatedLinks from '../components/RelatedLinks.jsx'
+import RevealSection from '../components/RevealSection.jsx'
 import { HOW_IT_WORKS_LEDE, HOW_IT_WORKS_STEPS, RELATED_LINKS } from '../data/offerContent.js'
 import { applyPageHead, breadcrumbJsonLd } from '../seo/pageHead.js'
 import { routeByPath, SITE_NAME } from '../data/site.js'
@@ -30,12 +32,11 @@ export default function HowItWorksPage() {
           <Link to="/products">Bishvilnu</Link>, or browse{' '}
           <Link to="/articles">articles on precise, scalable delivery</Link>.
         </p>
-        <div className="stack">
-          {HOW_IT_WORKS_STEPS.map((step) => (
-            <article key={step.title} className="step capability">
-              <h2>{step.title}</h2>
-              <p>{step.body}</p>
-            </article>
+        <div className="lifecycle-flow">
+          {HOW_IT_WORKS_STEPS.map((step, i) => (
+            <RevealSection key={step.title} delay={i * 90}>
+              <LifecycleStep step={step} index={i} />
+            </RevealSection>
           ))}
         </div>
         <RelatedLinks links={RELATED_LINKS.howItWorks} />

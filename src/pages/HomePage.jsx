@@ -1,7 +1,10 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import IntegrationsMarquee from '../components/IntegrationsMarquee.jsx'
+import LifecycleStep from '../components/LifecycleStep.jsx'
 import RelatedLinks from '../components/RelatedLinks.jsx'
+import RevealSection from '../components/RevealSection.jsx'
+import TrustBand from '../components/TrustBand.jsx'
 import { HOW_IT_WORKS_TEASER } from '../data/homeContent.js'
 import {
   HERO,
@@ -44,7 +47,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="offer-range-heading">
+      <TrustBand />
+
+      <RevealSection as="section" className="section" aria-labelledby="offer-range-heading">
         <div className="wrap">
           <p className="section-label">{OFFER_RANGE.label}</p>
           <h2 id="offer-range-heading" className="section-title">
@@ -57,53 +62,51 @@ export default function HomePage() {
             <Link to="/how-it-works">one lifecycle creates, supports, and scales</Link> the product.
           </p>
           <div className="stack">
-            {OFFER_RANGE.items.map((item) => (
-              <article key={item.title} className="capability">
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </article>
+            {OFFER_RANGE.items.map((item, i) => (
+              <RevealSection key={item.title} delay={i * 80}>
+                <article className="capability">
+                  <h3>{item.title}</h3>
+                  <p>{item.body}</p>
+                </article>
+              </RevealSection>
             ))}
           </div>
           <p className="section-link">
             <Link to="/how-it-works">See how products are created and scaled</Link>
           </p>
         </div>
-      </section>
+      </RevealSection>
 
-      <section className="section section-muted" aria-labelledby="how-teaser-heading">
+      <RevealSection as="section" className="section section-muted" aria-labelledby="how-teaser-heading">
         <div className="wrap">
           <p className="section-label">{HOME_HOW.label}</p>
           <h2 id="how-teaser-heading" className="section-title">
             {HOME_HOW.title}
           </h2>
           <p className="lede">{HOME_HOW.lede}</p>
-          <div className="stack">
-            {HOW_IT_WORKS_TEASER.map((item) => (
-              <article key={item.title} className="step capability">
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </article>
+          <div className="lifecycle-flow">
+            {HOW_IT_WORKS_TEASER.map((item, i) => (
+              <RevealSection key={item.title} delay={i * 100}>
+                <LifecycleStep step={item} index={i} />
+              </RevealSection>
             ))}
           </div>
           <p className="section-link">
             <Link to="/how-it-works">See how it works</Link>
           </p>
         </div>
-      </section>
+      </RevealSection>
 
       <IntegrationsMarquee />
-      <p className="wrap section-link integrations-strip-link">
-        <Link to="/technologies">All cloud and third-party platforms</Link>
-      </p>
 
-      <section className="section section-muted" aria-labelledby="explore-heading">
+      <RevealSection as="section" className="section section-muted" aria-labelledby="explore-heading">
         <div className="wrap">
           <h2 id="explore-heading" className="section-title">
             Explore
           </h2>
           <RelatedLinks links={RELATED_LINKS.home} heading="On this site" />
         </div>
-      </section>
+      </RevealSection>
 
       <section className="cta-band" aria-labelledby="cta-heading">
         <div className="wrap cta-band-inner">

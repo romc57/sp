@@ -42,13 +42,6 @@ export const SITE_ROUTES = [
     h1: 'Software Principle',
   },
   {
-    path: '/technologies',
-    title: 'Technologies',
-    description:
-      'Cloud and third-party platforms Software Principle uses — OpenAI, Google Cloud, GitHub, Netlify, React, and more.',
-    h1: 'Technologies',
-  },
-  {
     path: '/how-it-works',
     title: 'How it works',
     description:
@@ -94,7 +87,6 @@ export function routeByPath(path) {
 
 export const NAV_LINKS = [
   { to: '/how-it-works', label: 'How it works' },
-  { to: '/technologies', label: 'Technologies' },
   { to: '/products', label: 'Products and customers' },
   { to: '/articles', label: 'Articles' },
   { to: '/contact', label: 'Contact' },

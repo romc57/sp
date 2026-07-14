@@ -95,38 +95,27 @@ export const TECHNOLOGIES = {
 export const RELATED_LINKS = {
   home: [
     { to: '/how-it-works', label: 'Product create, support, and scale process' },
-    { to: '/technologies', label: 'Cloud and third-party platforms we integrate' },
     { to: '/products', label: 'Products and customers we deliver for' },
     { to: '/articles', label: 'Software product articles' },
     { to: '/contact', label: 'Discuss a product for your business' },
   ],
   howItWorks: [
-    { to: '/technologies', label: 'Cloud and third-party platforms we integrate' },
-    { to: '/products', label: 'Products and customers we deliver for' },
-    { to: '/articles', label: 'Software product articles' },
-    { to: '/contact', label: 'Discuss a product for your business' },
-  ],
-  technologies: [
-    { to: '/how-it-works', label: 'Product create, support, and scale process' },
     { to: '/products', label: 'Products and customers we deliver for' },
     { to: '/articles', label: 'Software product articles' },
     { to: '/contact', label: 'Discuss a product for your business' },
   ],
   contact: [
     { to: '/how-it-works', label: 'Product create, support, and scale process' },
-    { to: '/technologies', label: 'Cloud and third-party platforms we integrate' },
     { to: '/products', label: 'Products and customers we deliver for' },
     { to: '/articles', label: 'Software product articles' },
   ],
   articles: [
     { to: '/how-it-works', label: 'Product create, support, and scale process' },
-    { to: '/technologies', label: 'Cloud and third-party platforms we integrate' },
     { to: '/products', label: 'Products and customers we deliver for' },
     { to: '/contact', label: 'Discuss a product for your business' },
   ],
   products: [
     { to: '/how-it-works', label: 'Product create, support, and scale process' },
-    { to: '/technologies', label: 'Cloud and third-party platforms we integrate' },
     { to: '/articles', label: 'Software product articles' },
     { to: '/contact', label: 'Discuss a product for your business' },
   ],

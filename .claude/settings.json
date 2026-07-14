@@ -1,0 +1,43 @@
+{
+  "mcpServers": {
+    "vproject": {
+      "type": "stdio",
+      "command": "/home/rom/.local/bin/node",
+      "args": [
+        "/home/rom/Projects/sp/workstation-plugin/mcp/vproject/server.mjs"
+      ]
+    }
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ./workstation-plugin/claude/scripts/hook-emit.mjs"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ./workstation-plugin/claude/scripts/hook-emit.mjs"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ./workstation-plugin/claude/scripts/hook-emit.mjs"
+          }
+        ]
+      }
+    ]
+  }
+}
