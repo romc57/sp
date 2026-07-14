@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import RelatedLinks from '../components/RelatedLinks.jsx'
 import { HOW_IT_WORKS_LEDE, HOW_IT_WORKS_STEPS, RELATED_LINKS } from '../data/offerContent.js'
 import { applyPageHead, breadcrumbJsonLd } from '../seo/pageHead.js'
@@ -24,6 +25,11 @@ export default function HowItWorksPage() {
       <div className="wrap">
         <h1>How it works</h1>
         <p className="lede">{HOW_IT_WORKS_LEDE}</p>
+        <p className="lede">
+          See a finished example for a customer like{' '}
+          <Link to="/products">Bishvilnu</Link>, or browse{' '}
+          <Link to="/articles">articles on precise, scalable delivery</Link>.
+        </p>
         <div className="stack">
           {HOW_IT_WORKS_STEPS.map((step) => (
             <article key={step.title} className="step capability">

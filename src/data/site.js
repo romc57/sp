@@ -56,6 +56,13 @@ export const SITE_ROUTES = [
     h1: 'How it works',
   },
   {
+    path: '/products',
+    title: 'Products and customers',
+    description:
+      'Products Software Principle created, supports, and scales for real customers — including Bishvilnu, a cross-platform SaaS product for guided journeys and organizational programs.',
+    h1: 'Products and customers',
+  },
+  {
     path: '/contact',
     title: 'Contact',
     description: `Contact Software Principle about a product ${PRODUCT_RANGE_SHORT} — or about subscription and source ownership.`,
@@ -88,6 +95,7 @@ export function routeByPath(path) {
 export const NAV_LINKS = [
   { to: '/how-it-works', label: 'How it works' },
   { to: '/technologies', label: 'Technologies' },
+  { to: '/products', label: 'Products and customers' },
   { to: '/articles', label: 'Articles' },
   { to: '/contact', label: 'Contact' },
 ]

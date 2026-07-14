@@ -190,6 +190,27 @@ export function articlesIndexJsonLd(description) {
   }
 }
 
+/** @param {string} description */
+export function productsPageJsonLd(description) {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      breadcrumbListNode([
+        { name: SITE_NAME, path: '/' },
+        { name: 'Products and customers', path: '/products' },
+      ]),
+      {
+        '@type': 'CollectionPage',
+        '@id': `${SITE_ORIGIN}/products#webpage`,
+        url: absoluteUrl('/products'),
+        name: 'Products and customers',
+        description,
+        isPartOf: { '@id': `${SITE_ORIGIN}/#website` },
+      },
+    ],
+  }
+}
+
 /**
  * @param {{
  *   slug: string,

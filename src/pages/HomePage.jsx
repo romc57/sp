@@ -51,6 +51,11 @@ export default function HomePage() {
             {OFFER_RANGE.title}
           </h2>
           <p className="lede">{OFFER_RANGE.lede}</p>
+          <p className="lede">
+            Across that range — from local business sites to{' '}
+            <Link to="/products">cross-platform SaaS for customers such as Bishvilnu</Link> —{' '}
+            <Link to="/how-it-works">one lifecycle creates, supports, and scales</Link> the product.
+          </p>
           <div className="stack">
             {OFFER_RANGE.items.map((item) => (
               <article key={item.title} className="capability">

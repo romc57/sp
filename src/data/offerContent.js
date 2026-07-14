@@ -91,33 +91,44 @@ export const TECHNOLOGIES = {
   groups: technologyGroupsFromIntegrations(),
 }
 
-/** Internal links for crawl paths and topic relevance */
+/** Internal links for crawl paths and topic relevance — topical anchors, not nav labels */
 export const RELATED_LINKS = {
   home: [
-    { to: '/how-it-works', label: 'How it works' },
-    { to: '/technologies', label: 'Cloud technologies' },
-    { to: '/articles', label: 'Articles' },
-    { to: '/contact', label: 'Contact' },
+    { to: '/how-it-works', label: 'Product create, support, and scale process' },
+    { to: '/technologies', label: 'Cloud and third-party platforms we integrate' },
+    { to: '/products', label: 'Products and customers we deliver for' },
+    { to: '/articles', label: 'Software product articles' },
+    { to: '/contact', label: 'Discuss a product for your business' },
   ],
   howItWorks: [
-    { to: '/technologies', label: 'Cloud technologies' },
-    { to: '/articles', label: 'Articles' },
-    { to: '/contact', label: 'Discuss a product' },
+    { to: '/technologies', label: 'Cloud and third-party platforms we integrate' },
+    { to: '/products', label: 'Products and customers we deliver for' },
+    { to: '/articles', label: 'Software product articles' },
+    { to: '/contact', label: 'Discuss a product for your business' },
   ],
   technologies: [
-    { to: '/how-it-works', label: 'How it works' },
-    { to: '/articles', label: 'Articles' },
-    { to: '/contact', label: 'Contact' },
+    { to: '/how-it-works', label: 'Product create, support, and scale process' },
+    { to: '/products', label: 'Products and customers we deliver for' },
+    { to: '/articles', label: 'Software product articles' },
+    { to: '/contact', label: 'Discuss a product for your business' },
   ],
   contact: [
-    { to: '/how-it-works', label: 'How it works' },
-    { to: '/technologies', label: 'Cloud technologies' },
-    { to: '/articles', label: 'Articles' },
+    { to: '/how-it-works', label: 'Product create, support, and scale process' },
+    { to: '/technologies', label: 'Cloud and third-party platforms we integrate' },
+    { to: '/products', label: 'Products and customers we deliver for' },
+    { to: '/articles', label: 'Software product articles' },
   ],
   articles: [
-    { to: '/how-it-works', label: 'How it works' },
-    { to: '/technologies', label: 'Cloud technologies' },
-    { to: '/contact', label: 'Contact' },
+    { to: '/how-it-works', label: 'Product create, support, and scale process' },
+    { to: '/technologies', label: 'Cloud and third-party platforms we integrate' },
+    { to: '/products', label: 'Products and customers we deliver for' },
+    { to: '/contact', label: 'Discuss a product for your business' },
+  ],
+  products: [
+    { to: '/how-it-works', label: 'Product create, support, and scale process' },
+    { to: '/technologies', label: 'Cloud and third-party platforms we integrate' },
+    { to: '/articles', label: 'Software product articles' },
+    { to: '/contact', label: 'Discuss a product for your business' },
   ],
 }
 
