@@ -40,17 +40,11 @@ test.describe('seo', () => {
   })
 
   test('inner page includes breadcrumb JSON-LD', async ({ page }) => {
-    await page.goto('technologies')
-    await expect.poll(async () => page.title()).toContain('Technologies')
+    await page.goto('how-it-works')
+    await expect.poll(async () => page.title()).toContain('How it works')
     const jsonLd = page.locator('script[type="application/ld+json"]')
     const raw = await jsonLd.first().textContent()
     expect(raw).toContain('BreadcrumbList')
-  })
-
-  test('technologies page includes ProfessionalService JSON-LD', async ({ page }) => {
-    await page.goto('technologies')
-    const raw = await page.locator('script[type="application/ld+json"]').first().textContent()
-    expect(raw).toContain('ProfessionalService')
   })
 
   test('contact page includes ContactPoint JSON-LD', async ({ page }) => {
@@ -66,11 +60,11 @@ test.describe('seo', () => {
   })
 
   test('prerendered HTML exposes route H1 in static file', async ({ request }) => {
-    const res = await request.get('technologies/index.html')
+    const res = await request.get('how-it-works/index.html')
     expect(res.ok()).toBeTruthy()
     const body = await res.text()
-    expect(body).toContain('<h1>Technologies</h1>')
-    expect(body).toContain('Technologies · Software Principle')
+    expect(body).toContain('<h1>How it works</h1>')
+    expect(body).toContain('How it works · Software Principle')
   })
 
   test('home injects JSON-LD', async ({ page }) => {

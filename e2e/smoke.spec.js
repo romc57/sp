@@ -14,10 +14,9 @@ test.describe('smoke', () => {
       await expect(page.locator('h1')).toBeVisible()
     })
   }
-
   test('primary nav reaches contact', async ({ page }) => {
     await page.goto('./')
-    await page.getByRole('navigation', { name: 'Primary' }).getByRole('link', { name: 'Contact' }).click()
+    await page.getByRole('navigation', { name: 'Primary' }).getByRole('link', { name: 'Contact', exact: true }).click()
     await expect(page.getByRole('heading', { name: 'Contact' })).toBeVisible()
   })
 
