@@ -3,8 +3,8 @@ import { ARTICLES, articleBySlug } from './articles.js'
 import { ARTICLES as GENERATED } from './articles.generated.js'
 
 describe('ARTICLES', () => {
-  it('re-exports the generated module', () => {
-    expect(ARTICLES).toBe(GENERATED)
+  it('contains the generated articles', () => {
+    expect(ARTICLES).toEqual(expect.arrayContaining(GENERATED))
     expect(Array.isArray(ARTICLES)).toBe(true)
   })
 

@@ -25,6 +25,7 @@ export default function ContactPage() {
   return (
     <div className="page">
       <div className="wrap">
+        <p className="section-label">Get in touch</p>
         <h1>Contact</h1>
         <p className="lede">{CONTACT_LEDE}</p>
 
@@ -34,12 +35,14 @@ export default function ContactPage() {
             value={CONTACT_WHATSAPP_DISPLAY}
             openHref={whatsappUrl()}
             openLabel="Open WhatsApp"
+            iconType="whatsapp"
           />
           <ContactChannel
             label="Email"
             value={CONTACT_EMAIL}
             openHref={`mailto:${CONTACT_EMAIL}`}
             openLabel="Open email"
+            iconType="email"
           />
         </div>
 
