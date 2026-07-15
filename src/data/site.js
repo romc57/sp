@@ -6,6 +6,9 @@ export const SITE_ORIGIN = 'https://romc57.github.io/sp'
 export const SITE_NAME = 'Software Principle'
 export const SITE_SHORT = 'SP'
 
+/** GA4 web stream measurement ID (Admin → Data streams). */
+export const GA4_MEASUREMENT_ID = 'G-HSJMFVSLGM'
+
 
 /** Dedicated social share image (not the favicon) */
 export const DEFAULT_OG_PATH = '/og-image.png'
